@@ -3,14 +3,14 @@
 {% block content %}
 {%load humanize%}
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
+    <header class="masthead" style="background-image: url('{% static 'img/home.jpg' %}')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Clean Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+              <h1>¡Bienvenido!</h1>
+              <span class="subheading">Checa mis ultimos posts.</span>
             </div>
           </div>
         </div>
@@ -47,8 +47,30 @@
          
           <!-- Pager -->
           <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+            <a class="btn btn-primary float-left" href="#">&larr; Anterior</a>
+            <a class="btn btn-primary float-right" href="#">Siguiente &rarr;</a>
           </div>
+          <div class="pagination pagination-right">
+     <ul>
+         <li> 
+             {% if paginator.has_prev %}
+                  <a href="/url/?page={{ paginator.firstPage }}"> << </a>
+                  <a href="/url/?page={{ paginator.prev_page }}"> < </a>
+              {% else %}
+                  <a style="color:gray; cursor:not-allowed"> << </a>
+                  <a style="color:gray; cursor:not-allowed"> < </a>
+              {% endif %}                  
+              {% if paginator.has_next %}
+                  <a href="/url/?page={{ paginator.next_page }}"> > </a>
+                  <a href="/url/?page={{ paginator.pages }}"> >> </a>
+              {% else %}
+                  <a style="color:gray; cursor:not-allowed"> > </a>
+                  <a style="color:gray; cursor:not-allowed"> >> </a>
+              {% endif %}
+         </li>
+         <p>Página <{{paginator.page}} de {{paginator.pages}}> </p>
+     </ul>
+</div>
         </div>
       </div>
     </div>
