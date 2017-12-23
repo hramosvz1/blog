@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
 
-            {%for post in Posts %}
+            {%for post in paginator.queryset %}
             <div class="post-preview">
             <a href="/posts/{{post.Category.first}}/{{post.id}}">
               <h2 class="post-title">
@@ -47,30 +47,26 @@
          
           <!-- Pager -->
           <div class="clearfix">
-            <a class="btn btn-primary float-left" href="#">&larr; Anterior</a>
-            <a class="btn btn-primary float-right" href="#">Siguiente &rarr;</a>
-          </div>
-          <div class="pagination pagination-right">
-     <ul>
-         <li> 
+           
+          
+     
              {% if paginator.has_prev %}
-                  <a href="/url/?page={{ paginator.firstPage }}"> << </a>
-                  <a href="/url/?page={{ paginator.prev_page }}"> < </a>
+                  
+                  <a class="btn btn-primary float-left" href="?page={{ paginator.prev_page }}">&larr; Anterior </a>
               {% else %}
-                  <a style="color:gray; cursor:not-allowed"> << </a>
-                  <a style="color:gray; cursor:not-allowed"> < </a>
+                  
               {% endif %}                  
               {% if paginator.has_next %}
-                  <a href="/url/?page={{ paginator.next_page }}"> > </a>
-                  <a href="/url/?page={{ paginator.pages }}"> >> </a>
+                  <a class="btn btn-primary float-right"  href="?page={{ paginator.next_page }}">Siguiente &rarr;</a>
+                  
               {% else %}
-                  <a style="color:gray; cursor:not-allowed"> > </a>
-                  <a style="color:gray; cursor:not-allowed"> >> </a>
+                 
               {% endif %}
-         </li>
-         <p>Página <{{paginator.page}} de {{paginator.pages}}> </p>
-     </ul>
-</div>
+         
+           <div class="clearfix"> </div>
+      
+     </div>
+          <div class="pagination pagination-right"><p>Página <{{paginator.page}} de {{paginator.pages}}> </p></div>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ def index(request):
 	
 	Posts = Post.objects.all().order_by('-id')
 	Categories = Category.objects.all()
-	pag = Paginate(request, Posts, 8)
+	pag = Paginate(request, Posts, 1)
 
 
 
