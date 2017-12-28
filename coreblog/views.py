@@ -15,7 +15,7 @@ def index(request):
 	
 	Posts = Post.objects.all().order_by('-id')
 	Categories = Category.objects.all()
-	pag = Paginate(request, Posts, 1)
+	pag = Paginate(request, Posts, 8)
 
 
 
@@ -34,16 +34,22 @@ def about(request):
 def post(request, slug=None,pk=None):
 
 	P_detail = get_object_or_404(Post, id=pk)
-	
 
 	return render(request, 'post.html', {'P_detail':P_detail})
 
 def category(request,slug= None):
-	Posts = Post.objects.filter(Category__Name=slug)
-	Categories = get_object_or_404(Category, Name=slug)
-	
+    Posts = Post.objects.filter(Category__Name=slug).order_by('-id')
+    sCategory = get_object_or_404(Category, Name=slug)
+    Categories = Category.objects.all()
+    pag = Paginate(request, Posts, 8)
 
-	return render(request, 'category.html',{'Posts':Posts, 'Categories':Categories})
+    return render(request, 'category.html',{'Posts':Posts, 'Categories':Categories,'sCategory':sCategory, 'paginator': pag})
+
+
+def login(request):
+
+
+    return render(request, 'login.html')
 
 
 def Paginate(request, queryset, pages):

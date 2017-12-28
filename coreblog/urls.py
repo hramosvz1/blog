@@ -11,6 +11,7 @@ urlpatterns = [
 	url(r'^contact/$', views.contact, name=u'contact'),
 	url(r'^posts/(?P<slug>[-\w]+)/$', views.category, name=u'category'),
 	url(r'^posts/(?P<slug>[-\w]+)/(?P<pk>\d+)/$', views.post, name=u'post'),
+	url(r'^login/$', views.login, name=u'login'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

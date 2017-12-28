@@ -12,8 +12,7 @@
             <div class="post-heading">
               <h1>{{P_detail.Title}}</h1>
              <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2>-->
-              <span class="meta">Posteado por
-                <a href="#">{{P_detail.Author}}</a>
+              <span class="meta">Posteado 
                 {{P_detail.Timestamp|naturaltime}}</span>
             </div>
           </div>
@@ -25,9 +24,15 @@
     <article>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto" style="word-break: break-word;white-space: pre-wrap;">
+          <div class="col-lg-9 col-md-9 mx-auto" style="word-break: break-word;white-space: pre-wrap;">
             {{P_detail.Content}}
           </div>
+
+
+
+
+
+         
         </div>
       </div>
     </article>

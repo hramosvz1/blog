@@ -3,13 +3,13 @@
 {% block content %}
 {%load humanize%}
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('{{Categories.Image.url}}')">
+    <header class="masthead" style="background-image: url('{{sCategory.Image.url}}')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>{{Categories.Name}}</h1>
+              <h1>{{sCategory.Name}}</h1>
               <span class="subheading">Encuentra el articulo que estás buscando.</span>
             </div>
           </div>
@@ -20,9 +20,9 @@
     <!-- Main Content -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-9 col-md-9 mx-auto">
 
-            {%for post in Posts %}
+            {%for post in paginator.queryset  %}
             <div class="post-preview">
             <a href="{{post.id}}">
               <h2 class="post-title">
@@ -46,9 +46,38 @@
          {%endfor%}
          
           <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+           <div class="clearfix">
+     
+             {% if paginator.has_prev %}
+                  
+                  <a class="btn btn-primary float-left" href="?page={{ paginator.prev_page }}" style="padding: 15px;">&larr; Anterior </a>
+              {% else %}
+                  
+              {% endif %}                  
+              {% if paginator.has_next %}
+                  <a class="btn btn-primary float-right"  href="?page={{ paginator.next_page }}" style="padding: 15px;">Siguiente &rarr;</a>
+                  
+              {% else %}
+                 
+              {% endif %}
+      
           </div>
+          <br> <br>
+          <div class="clearfix "><center><h4>Página <{{paginator.page}} de {{paginator.pages}}> </h4></center></div>
+        </div>
+        <div class="col-lg-3 col-md-3 mx-auto" style="">
+
+          <div style=" height: 30%;">
+            <div style=" margin-top: 40px;">
+              <center><h3 style="color: black; text-align: right;">CATEGORÍAS</h3></center>
+          
+              {%for tag in Categories%}
+                  <a class="btn btn-primary btn-xs" href="/posts/{{tag.Name}}" style=" float: right;"> {{tag.Name}}</a><br>
+              {%endfor%}
+            </div>
+            
+          </div>
+          
         </div>
       </div>
     </div>
