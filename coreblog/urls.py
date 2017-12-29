@@ -7,10 +7,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 	url(r'^$', views.index, name=u'index'),
-	url(r'^about/$', views.about, name=u'about'),
-	url(r'^contact/$', views.contact, name=u'contact'),
-	url(r'^posts/(?P<slug>[-\w]+)/$', views.category, name=u'category'),
-	url(r'^posts/(?P<slug>[-\w]+)/(?P<pk>\d+)/$', views.post, name=u'post'),
+	url(r'^acerca/$', views.about, name=u'about'),
+	url(r'^contacto/$', views.contact, name=u'contact'),
+	url(r'^categoria/(?P<slug>[-\w]+)/$', views.category, name=u'category'),
+	url(r'^categoria/(?P<slug>[-\w]+)/(?P<pk>\d+)/$', views.post, name=u'post'),
 	url(r'^login/$', views.login, name=u'login'),
 
 

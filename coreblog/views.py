@@ -15,7 +15,7 @@ def index(request):
 	
 	Posts = Post.objects.all().order_by('-id')
 	Categories = Category.objects.all()
-	pag = Paginate(request, Posts, 8)
+	pag = Paginate(request, Posts, 5)
 
 
 
@@ -33,17 +33,20 @@ def about(request):
 
 def post(request, slug=None,pk=None):
 
-	P_detail = get_object_or_404(Post, id=pk)
+    P_detail = get_object_or_404(Post, id=pk)
+    Lasts_posts = Post.objects.all().order_by('-id')
+    Categories = Category.objects.all()
 
-	return render(request, 'post.html', {'P_detail':P_detail})
+    return render(request, 'post.html', {'P_detail':P_detail,'Lasts_posts':Lasts_posts,'Categories':Categories})
 
 def category(request,slug= None):
     Posts = Post.objects.filter(Category__Name=slug).order_by('-id')
+    Lasts_posts = Post.objects.all().order_by('-id')
     sCategory = get_object_or_404(Category, Name=slug)
     Categories = Category.objects.all()
     pag = Paginate(request, Posts, 8)
 
-    return render(request, 'category.html',{'Posts':Posts, 'Categories':Categories,'sCategory':sCategory, 'paginator': pag})
+    return render(request, 'category.html',{'Posts':Posts, 'Categories':Categories,'sCategory':sCategory, 'paginator': pag, 'Lasts_posts':Lasts_posts})
 
 
 def login(request):

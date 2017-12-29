@@ -29,7 +29,7 @@
           <div class="post-preview">
            <!-- <div class="" style="float: left;background: url('{{post.Image.url}}') no-repeat;background-size: cover; height: 180px;width: 230px;"></div>
             -->
-            <a href="/posts/{{post.Category.first}}/{{post.id}}">
+            <a href="/categoria/{{post.Category.first}}/{{post.id}}">
               <h2 style="" class="post-title">
                 {{post.Title}}
               </h2>
@@ -44,7 +44,7 @@
             </p>
 
               {%for tag in post.Category.all%}
-                  <a class="btn btn-primary btn-xs" href="/posts/{{tag.Name}}" style="color: white;"> {{tag.Name}}</a>
+                  <a class="btn btn-primary btn-xs" href="/categoria/{{tag.Name}}" style="color: white;"> {{tag.Name}}</a>
               {%endfor%}
           </div>
           <hr>
@@ -74,12 +74,23 @@
 
         <div class="col-lg-3 col-md-3 mx-auto" style="">
 
-          <div style=" height: 30%;">
+          <div style=" ">
             <div style=" margin-top: 40px;">
               <center><h3 style="color: black; text-align: right;">CATEGORÍAS</h3></center>
           
               {%for tag in Categories%}
-                  <a class="btn btn-primary btn-xs" href="/posts/{{tag.Name}}" style=" float: right;"> {{tag.Name}}</a><br>
+                  <a class="btn btn-primary btn-xs" href="/categoria/{{tag.Name}}" style=" float: right;"> {{tag.Name}}</a><br>
+              {%endfor%}
+            </div>
+            
+          </div>
+
+          <div style=" ">
+            <div style=" margin-top: 40px;">
+              <center><h3 style="color: black; text-align: right;">ÚLTIMOS POSTS</h3></center>
+          
+              {%for ultimos in Posts%}
+                  <a class="" href="/categoria/{{ultimos.Category.first}}/{{ultimos.id}}" style=" float: right;text-decoration:none;  "> <h6 class="" style="font-weight:100; ">{{ultimos.Title|truncatewords:"5" }}</h6></a><br>
               {%endfor%}
             </div>
             
