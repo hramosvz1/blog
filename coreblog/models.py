@@ -4,6 +4,8 @@ import os, sys
 from django.db import models
 from django.utils import timezone
 import datetime
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 
@@ -19,7 +21,7 @@ class User(models.Model):
 
 class Post(models.Model):
      Title= models.CharField(max_length=100)
-     Content= models.TextField(max_length=3000)
+     Content= RichTextUploadingField()
      Category= models.ManyToManyField('Category', blank=True) 
      Author=models.ForeignKey('User',on_delete=models.CASCADE,)
      Image=  models.ImageField(upload_to = 'post_head_img', default='')

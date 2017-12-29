@@ -33,13 +33,11 @@
               <h2 style="" class="post-title">
                 {{post.Title}}
               </h2>
-              <h3 style="" class="post-subtitle ">
-                {{post.Content|truncatewords:"40" }}
-              </h3>
+              <h3 style="" class="post-subtitle content-markdown ">{{post.Content|truncatewords:"30" }}</h3>
               
             </a>
 
-            <p class="post-meta">Posteado 
+            <p class="post-meta">Posteado por <a href="/acerca" title=""> Hector Ramos</a>
               {{post.Timestamp|naturaltime }}
             </p>
 

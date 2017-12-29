@@ -28,9 +28,7 @@
               <h2 class="post-title">
                 {{post.Title}}
               </h2>
-              <h3 class="post-subtitle">
-                {{post.Content|truncatewords:"20" }}
-              </h3>
+              <h3 class="post-subtitle content-markdown">{{post.Content|truncatewords:"30" }}</h3>
               
             </a>
               {%for tag in post.Category.all%}
@@ -38,7 +36,7 @@
               {%endfor%}
 
             <p class="post-meta">Posteado por
-              <a href="#">{{post.Author}}</a>
+              <a href="/acerca">Hector Ramos</a>
               {{post.Timestamp|naturaltime }}</p>
           </div>
           <hr>
