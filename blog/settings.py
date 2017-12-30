@@ -48,8 +48,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-DISQUS_API_KEY = 'vdivACElvYMsyw2XpZkqA3zp9p2zyNmBSRhsL4ur3Zl28slzYBpiTOWatQUrTW8j'
-DISQUS_WEBSITE_SHORTNAME = 'miblog'
+DISQUS_API_KEY = 'Pbpb5RdABaRsoc8Eyitwj3jTSXnER3rs7NHFhgNqtAsmE3wrq7YGxzLyMaCT91lI'
+DISQUS_WEBSITE_SHORTNAME = 'hector-ramos'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

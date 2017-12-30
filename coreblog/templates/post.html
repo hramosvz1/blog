@@ -3,7 +3,19 @@
 {% block content %}
 {%load humanize%}
 
+{% load disqus_tags %}
+{% set_disqus_title P_detail.Title %}
+{% set_disqus_identifier P_detail.Title %}
 
+
+
+
+
+
+<script type="text/javascript">
+        var disqus_developer = 1;
+        var disqus_url = 'http://www.hramosvz.pythonanywhere.com/categoria/Tecnología/3/';
+    </script>
 
 
     <!-- Page Header -->
@@ -43,7 +55,7 @@
             <br>
             <br>
 
-            <div>{% load disqus_tags %}{% disqus_show_comments %}</div>
+            <div>{% disqus_show_comments %}</div>
            </div>
           
            <div class="col-lg-3 col-md-3 mx-auto" style="">
@@ -82,7 +94,7 @@
     </article>
 
 
-  
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
