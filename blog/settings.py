@@ -38,11 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
     'coreblog',
     'ckeditor',
     'ckeditor_uploader',
     'emoji',
+    'disqus',
 ]
+
+SITE_ID = 1
+
+DISQUS_API_KEY = 'vdivACElvYMsyw2XpZkqA3zp9p2zyNmBSRhsL4ur3Zl28slzYBpiTOWatQUrTW8j'
+DISQUS_WEBSITE_SHORTNAME = 'miblog'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

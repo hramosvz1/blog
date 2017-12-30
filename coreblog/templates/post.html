@@ -3,10 +3,9 @@
 {% block content %}
 {%load humanize%}
 
-{% load emoji_tags %}
-{{ blog_post.body|emoji_replace }}
-{{ blog_post.body|emoji_replace_unicode }}
-{{ blog_post.body|emoji_replace_html_entities }}
+
+{% load disqus_tags %}
+{% disqus_dev %}
 
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('{{ P_detail.Image.url }}')">
@@ -28,6 +27,7 @@
               
             </div>
           </div>
+
         </div>
       </div>
     </header>
@@ -36,7 +36,16 @@
     <article>
       <div class="container">
         <div class="row">
-          <div class="col-lg-9 col-md-9 mx-auto content-markdown" style="">{{P_detail.Content|linebreaks}}</div>
+          <div class="col-lg-9 col-md-9 mx-auto" style="">
+
+            <div class="content-markdown">{{P_detail.Content|linebreaks}}</div> 
+
+            <br>
+            <br>
+            <br>
+
+            <div>{% load disqus_tags %}{% disqus_show_comments %}</div>
+           </div>
           
            <div class="col-lg-3 col-md-3 mx-auto" style="">
 
