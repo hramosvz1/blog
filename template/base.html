@@ -21,6 +21,16 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111754569-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111754569-1');
+</script>
+
 
   </head>
 
@@ -51,7 +61,7 @@
     </nav>
 
 
-   
+
 {% block content %}
 
 {% endblock %}
@@ -106,7 +116,7 @@
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js" type="" media="">></script>
 
     <script type="text/javascript">
-      
+
       $(document).ready(function(){
         $(".content-markdown").each(function(){
 
@@ -114,10 +124,10 @@
           console.log(content)
           var markedContent = marked(content)
           console.log(markedContent)
-          $(this).html(markedContent) 
+          $(this).html(markedContent)
 
            })
-        
+
       });
     </script>
 
