@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'coreblog',
     'ckeditor',
     'ckeditor_uploader',
+    'emoji',
 ]
 
 MIDDLEWARE = [
