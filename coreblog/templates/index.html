@@ -21,7 +21,7 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" style="">
       <div class="row">
         <div class="col-lg-9 col-md-9 mx-auto">
 
@@ -33,7 +33,7 @@
               <h2 style="" class="post-title">
                 {{post.Title}}
               </h2>
-              <h3 style="" class="post-subtitle content-markdown ">{{post.Content|truncatewords:"30" }}</h3>
+              <h3 style="" class="post-subtitle content-markdown ">{{post.Content|truncatewords:"39" }}</h3>
               
             </a>
 
@@ -69,7 +69,6 @@
           <br> <br>
           <div class="clearfix "><center><h4>Página <{{paginator.page}} de {{paginator.pages}}> </h4></center></div>
         </div>
-
         <div class="col-lg-3 col-md-3 mx-auto" style="">
 
           <div style=" ">
@@ -77,7 +76,7 @@
               <center><h3 style="color: black; text-align: right;">CATEGORÍAS</h3></center>
           
               {%for tag in Categories%}
-                  <a class="btn btn-primary btn-xs" href="/categoria/{{tag.Name}}" style=" float: right;"> {{tag.Name}}</a><br>
+                  <a class="btn btn-primary btn-xs" href="/categoria/{{tag.Name}}" style=" float: right;">{{tag.Name}} {% for num in tag.Post.all.count %}{{ num }}{% endfor %}</a><br>
               {%endfor%}
             </div>
             
