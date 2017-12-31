@@ -10,6 +10,8 @@ from django.db.models import Q
 from django.core.paginator import Paginator , EmptyPage, PageNotAnInteger
 from django.urls import reverse
 from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.conf import settings
 # Create your views here.
 
 
@@ -23,20 +25,32 @@ def index(request):
 
 	return render(request, 'index.html', {'Posts':Posts, 'Categories':Categories, 'paginator': pag})
 
+@csrf_exempt
 def contact(request):
+
+    if request.method == 'POST':
+        if request.is_ajax():
+            
+            email = request.POST.get("email")
+            message = request.POST.get("message")
+            phone = request.POST.get("phone")
+            name = request.POST.get("name")
+
+            subject = "Nuevo correo del blog: %s" %(name)
+            contact_message = " %s: \n\n\n %s \n\n\n %s \n\n Tel: %s"%(name,message,email, phone)
+            from_email= settings.EMAIL_HOST_USER
+            to_email = settings.EMAIL_HOST_USER
+
+            send_mail(subject, contact_message,from_email,[to_email],fail_silently=False,)
+
+            data={}
+            return JsonResponse(data)
+
 
     return render(request, 'contact.html')
 
 def about(request):
-	
-    if request.method == 'POST':
 
-        send_mail(
-    'Subject here',
-    request.POST.get("password"),
-    'hramosvz@gmail.com',
-    ['hramosvz@gmail.com'],
-    fail_silently=False,)
 
 
     return render(request, 'about.html')
