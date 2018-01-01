@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^', include('coreblog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^emoji/', include('emoji.urls')),
+    url(r'^newsletter/', include('newsletter.urls')),
 
 ]

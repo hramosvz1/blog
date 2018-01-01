@@ -106,13 +106,18 @@
             //                                                   PATTERN
             // ---------------------------------------------------------
             if ($this.attr("pattern") !== undefined) {
-              message = "Not in the expected format<!-- data-validation-pattern-message to override -->";
+              message = "Porfavor, agrega 10 numeros :D<!-- data-validation-pattern-message to override -->";
               if ($this.data("validationPatternMessage")) {
                 message = $this.data("validationPatternMessage");
               }
               $this.data("validationPatternMessage", message);
               $this.data("validationPatternRegex", $this.attr("pattern"));
             }
+
+            // ---------------------------------------------------------
+            //                                                   tel
+            // ---------------------------------------------------------
+           
             // ---------------------------------------------------------
             //                                                       MAX
             // ---------------------------------------------------------
@@ -183,7 +188,7 @@
             //                                                     EMAIL
             // ---------------------------------------------------------
             if ($this.attr("type") !== undefined && $this.attr("type").toLowerCase() === "email") {
-              message = "No es un email válido<!-- data-validator-validemail-message to override -->";
+              message = "No es un email valido<!-- data-validator-validemail-message to override -->";
               if ($this.data("validationValidemailMessage")) {
                 message = $this.data("validationValidemailMessage");
               } else if ($this.data("validationEmailMessage")) {

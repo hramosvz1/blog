@@ -50,8 +50,16 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'emoji',
     'disqus',
+    'django_extensions',
+    'sorl.thumbnail',
+    'newsletter',
 ]
 
+#newsletter
+NEWSLETTER_CONFIRM_EMAIL = False
+
+
+#disqus
 SITE_ID = 1
 DISQUS_API_KEY = 'VBiPPbZczT3XJrnGwq3rMlmmGV0RROxcrdMnrU4DAbDSkGY3e5mTNIdwL10Er4Dc'
 DISQUS_WEBSITE_SHORTNAME = 'hector-ramos'

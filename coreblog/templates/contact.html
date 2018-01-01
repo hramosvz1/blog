@@ -43,7 +43,7 @@
             <div class="control-group">
               <div class="form-group col-xs-12 floating-label-form-group controls">
                 <label>Numero telefonico</label>
-                <input type="numbre" class="form-control" placeholder="Telefono" id="phone" required data-validation-required-message="Porfavor ingresa tu numero de contacto">
+                <input type="tel" class="form-control" placeholder="Telefono (opcional)" id="phone" pattern="[0-9]{10}" >
                 <p class="help-block text-danger"></p>
               </div>
             </div>
@@ -57,7 +57,7 @@
             <br>
             <div id="success"></div>
             <div class="form-group">
-              <input type="submit" class="btn btn-primary" id="sendMessageButton" style="padding: 15px; float: right;">
+              <input type="submit" class="btn btn-primary" id="sendMessageButton" value="Enviar" style="padding: 15px; float: right;" >
             </div>
           </form>
         </div>
