@@ -156,7 +156,21 @@
 
          // console.log(markedContent)
           $(this).html(markedContent) 
+          
 
+
+           })
+        $(".content-markdown p img").each(function(){
+
+          $(this).addClass('img-fluid')
+          $(this).addClass('rounded')
+        
+
+           })
+        $(".embed-responsive p").each(function(){
+
+         $(this).css("height","315px");
+         
 
            })
 
