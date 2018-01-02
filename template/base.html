@@ -129,9 +129,20 @@
 
 
           <div class="col-lg-4 col-md-4 mx-auto">
-            <div class="form-group">
-              <a  class="btn btn-primary" id="sendMessageButton"  style="padding: 15px; float: right;" href="#">Top</a>
-            </div>
+            <li class="list-inline-item" style="float: right;">
+                <a class="go-top" href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-arrow-circle-up fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+
+
+
+           
+             
+            
             
           </div>
         </div>
@@ -175,8 +186,25 @@
 
            })
 
+        $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+          $('.go-top').fadeIn(200);
+        } else {
+          $('.go-top').fadeOut(200);
+        }
+      });
+
+      // Animate the scroll to top
+      $('.go-top').click(function(event) {
+        event.preventDefault();
+
+        $('html, body').animate({scrollTop: 0}, 300);
+      })
+
       });
     </script>
+  </script>
+
 
   </body>
 

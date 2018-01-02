@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'po!&x0u_4ic)7y+fm=p#7sszg_)=va+wrd#9h52xahm4+yt0jl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -149,8 +149,12 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media') para cuando esté en producción
+
 MEDIA_URL = '/media/'
+
 
 LOGIN_URL = '/'
 
